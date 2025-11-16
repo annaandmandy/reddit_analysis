@@ -1,0 +1,291 @@
+{
+  "graph": {
+    "nodes": [
+      {
+        "id": "fitness",
+        "name": "r/fitness",
+        "size": 450,
+        "category": "fitness"
+      },
+      {
+        "id": "loseit",
+        "name": "r/loseit",
+        "size": 520,
+        "category": "fitness"
+      },
+      {
+        "id": "keto",
+        "name": "r/keto",
+        "size": 320,
+        "category": "fitness"
+      },
+      {
+        "id": "intermittentfasting",
+        "name": "r/intermittentfasting",
+        "size": 380,
+        "category": "fitness"
+      },
+      {
+        "id": "bodyweightfitness",
+        "name": "r/bodyweightfitness",
+        "size": 280,
+        "category": "fitness"
+      },
+      {
+        "id": "running",
+        "name": "r/running",
+        "size": 240,
+        "category": "fitness"
+      },
+      {
+        "id": "learnprogramming",
+        "name": "r/learnprogramming",
+        "size": 580,
+        "category": "tech"
+      },
+      {
+        "id": "webdev",
+        "name": "r/webdev",
+        "size": 420,
+        "category": "tech"
+      },
+      {
+        "id": "python",
+        "name": "r/python",
+        "size": 390,
+        "category": "tech"
+      },
+      {
+        "id": "javascript",
+        "name": "r/javascript",
+        "size": 360,
+        "category": "tech"
+      },
+      {
+        "id": "reactjs",
+        "name": "r/reactjs",
+        "size": 310,
+        "category": "tech"
+      },
+      {
+        "id": "cscareerquestions",
+        "name": "r/cscareerquestions",
+        "size": 290,
+        "category": "tech"
+      },
+      {
+        "id": "personalfinance",
+        "name": "r/personalfinance",
+        "size": 510,
+        "category": "finance"
+      },
+      {
+        "id": "investing",
+        "name": "r/investing",
+        "size": 380,
+        "category": "finance"
+      },
+      {
+        "id": "stocks",
+        "name": "r/stocks",
+        "size": 350,
+        "category": "finance"
+      },
+      {
+        "id": "financialindependence",
+        "name": "r/financialindependence",
+        "size": 270,
+        "category": "finance"
+      }
+    ],
+    "links": [
+      {
+        "source": "fitness",
+        "target": "loseit",
+        "value": 180,
+        "avg_time_gap": 12,
+        "migration_velocity": 4.5
+      },
+      {
+        "source": "loseit",
+        "target": "intermittentfasting",
+        "value": 145,
+        "avg_time_gap": 23,
+        "migration_velocity": 3.8
+      },
+      {
+        "source": "loseit",
+        "target": "keto",
+        "value": 125,
+        "avg_time_gap": 18,
+        "migration_velocity": 3.2
+      },
+      {
+        "source": "intermittentfasting",
+        "target": "keto",
+        "value": 98,
+        "avg_time_gap": 31,
+        "migration_velocity": 2.6
+      },
+      {
+        "source": "fitness",
+        "target": "bodyweightfitness",
+        "value": 92,
+        "avg_time_gap": 8,
+        "migration_velocity": 3.1
+      },
+      {
+        "source": "fitness",
+        "target": "running",
+        "value": 78,
+        "avg_time_gap": 15,
+        "migration_velocity": 2.2
+      },
+      {
+        "source": "bodyweightfitness",
+        "target": "fitness",
+        "value": 45,
+        "avg_time_gap": 42,
+        "migration_velocity": 1.5
+      },
+      {
+        "source": "running",
+        "target": "loseit",
+        "value": 52,
+        "avg_time_gap": 28,
+        "migration_velocity": 1.8
+      },
+      {
+        "source": "learnprogramming",
+        "target": "webdev",
+        "value": 165,
+        "avg_time_gap": 45,
+        "migration_velocity": 4.2
+      },
+      {
+        "source": "learnprogramming",
+        "target": "python",
+        "value": 142,
+        "avg_time_gap": 35,
+        "migration_velocity": 3.9
+      },
+      {
+        "source": "learnprogramming",
+        "target": "javascript",
+        "value": 128,
+        "avg_time_gap": 38,
+        "migration_velocity": 3.5
+      },
+      {
+        "source": "python",
+        "target": "webdev",
+        "value": 95,
+        "avg_time_gap": 52,
+        "migration_velocity": 2.8
+      },
+      {
+        "source": "javascript",
+        "target": "reactjs",
+        "value": 110,
+        "avg_time_gap": 29,
+        "migration_velocity": 3.3
+      },
+      {
+        "source": "webdev",
+        "target": "reactjs",
+        "value": 88,
+        "avg_time_gap": 41,
+        "migration_velocity": 2.5
+      },
+      {
+        "source": "learnprogramming",
+        "target": "cscareerquestions",
+        "value": 115,
+        "avg_time_gap": 67,
+        "migration_velocity": 2.9
+      },
+      {
+        "source": "python",
+        "target": "cscareerquestions",
+        "value": 65,
+        "avg_time_gap": 72,
+        "migration_velocity": 1.9
+      },
+      {
+        "source": "personalfinance",
+        "target": "investing",
+        "value": 155,
+        "avg_time_gap": 48,
+        "migration_velocity": 4.1
+      },
+      {
+        "source": "personalfinance",
+        "target": "financialindependence",
+        "value": 118,
+        "avg_time_gap": 62,
+        "migration_velocity": 3.2
+      },
+      {
+        "source": "investing",
+        "target": "stocks",
+        "value": 135,
+        "avg_time_gap": 33,
+        "migration_velocity": 3.7
+      },
+      {
+        "source": "stocks",
+        "target": "investing",
+        "value": 72,
+        "avg_time_gap": 55,
+        "migration_velocity": 2.1
+      },
+      {
+        "source": "financialindependence",
+        "target": "investing",
+        "value": 85,
+        "avg_time_gap": 45,
+        "migration_velocity": 2.4
+      }
+    ]
+  },
+  "metadata": {
+    "total_migrations": 2847,
+    "unique_users": 1432,
+    "subreddit_count": 16,
+    "flow_count": 21,
+    "generated_at": "2025-01-15T10:30:00"
+  },
+  "bridge_communities": [
+    {
+      "subreddit": "loseit",
+      "centrality": 0.425,
+      "category": "fitness"
+    },
+    {
+      "subreddit": "learnprogramming",
+      "centrality": 0.398,
+      "category": "tech"
+    },
+    {
+      "subreddit": "personalfinance",
+      "centrality": 0.372,
+      "category": "finance"
+    },
+    {
+      "subreddit": "webdev",
+      "centrality": 0.287,
+      "category": "tech"
+    },
+    {
+      "subreddit": "investing",
+      "centrality": 0.265,
+      "category": "finance"
+    }
+  ],
+  "summary_stats": {
+    "avg_migration_time": 38.4,
+    "median_migration_time": 35,
+    "fastest_migration": 8,
+    "slowest_migration": 72
+  }
+}
