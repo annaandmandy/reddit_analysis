@@ -5,14 +5,13 @@
  */
 export async function parseRedditThread(url) {
   try {
-    // Convert Reddit URL to JSON API endpoint
-    const jsonUrl = url.replace(/\/$/, '') + '.json'
-
-    // Fetch the thread data
-    const response = await fetch(jsonUrl)
+    // Use our backend proxy server to fetch Reddit data
+    // This avoids CORS issues and handles Reddit API authentication
+    const response = await fetch(`/api/reddit/thread?url=${encodeURIComponent(url)}`)
 
     if (!response.ok) {
-      throw new Error('Failed to fetch Reddit thread. Please check the URL.')
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.error || 'Failed to fetch Reddit thread. Please check the URL.')
     }
 
     const data = await response.json()

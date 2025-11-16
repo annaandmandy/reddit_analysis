@@ -17,6 +17,7 @@ A web application that visualizes Reddit discussion threads as interactive 3D ec
 
 - Node.js (v16 or higher)
 - npm or yarn
+- Reddit API credentials (see setup below)
 
 ### Installation
 
@@ -30,12 +31,35 @@ cd reddit-3d-app
 npm install
 ```
 
-3. Start the development server:
-```bash
-npm run dev
-```
+3. **Configure Reddit API Credentials** (REQUIRED):
+   - Go to https://www.reddit.com/prefs/apps
+   - Click "Create App" or "Create Another App"
+   - Fill in:
+     - **Name**: reddit-3d-app (or any name)
+     - **App type**: Select "script"
+     - **Redirect URI**: http://localhost:3000 (required)
+   - Copy your credentials and update `.env` file:
+     - **Client ID**: The string under "personal use script"
+     - **Client Secret**: The secret key shown
 
-4. Open your browser to `http://localhost:3000`
+4. **Start BOTH servers** (required):
+
+   **Terminal 1 - Backend Server:**
+   ```bash
+   npm run server
+   ```
+
+   **Terminal 2 - Frontend Dev Server:**
+   ```bash
+   npm run dev
+   ```
+
+   Or run both together:
+   ```bash
+   npm start
+   ```
+
+5. Open your browser to `http://localhost:3000`
 
 ## Usage
 
@@ -216,13 +240,44 @@ The application uses a recursive tree structure for representing threads:
 5. **Rendering**: Three.js renders nodes (spheres) and edges (lines) in 3D space
 6. **Interaction**: Users can click nodes to view details and navigate the ecosystem
 
-## CORS Note
+## Architecture
 
-Reddit's API allows cross-origin requests, so this app can fetch thread data directly from the browser. If you encounter CORS issues:
+This app uses a **backend proxy server** to handle Reddit API authentication and avoid CORS issues.
 
-1. Use a CORS proxy (for development only)
-2. Convert to Chrome extension (no CORS restrictions)
-3. Set up a backend proxy server
+### How It Works
+
+```
+User Browser (localhost:3000)
+    |
+    v
+Vite Dev Server (localhost:3000)
+    |
+    v (proxy /api/*)
+Express Server (localhost:3001)
+    |
+    v (OAuth + API request)
+Reddit API (reddit.com)
+```
+
+1. **Frontend (React + Vite)** - Port 3000
+   - User interface and 3D visualization
+   - Sends requests to `/api/reddit/thread`
+
+2. **Backend Proxy (Express)** - Port 3001
+   - Handles Reddit OAuth authentication
+   - Proxies requests to Reddit's API
+   - Configured in [server.js](server.js)
+
+3. **Vite Proxy** - [vite.config.js](vite.config.js)
+   - Forwards `/api/*` requests to backend
+
+### Files Modified for API Support
+
+- [.env](.env) - Reddit API credentials (NEVER commit!)
+- [server.js](server.js) - Backend proxy server
+- [src/utils/thread-parser.js](src/utils/thread-parser.js:10) - Uses `/api/reddit/thread` endpoint
+- [vite.config.js](vite.config.js:9-13) - Proxy configuration
+- [package.json](package.json:8-9) - Server scripts
 
 ## Future Enhancements
 
