@@ -248,17 +248,18 @@ class MigrationProcessor:
 
         return bridge_communities
 
-    def export_for_frontend(self, output_path: str, include_metrics=True):
+    def export_for_frontend(self, output_path: str, include_metrics=True, min_threshold=None):
         """
         Saves processed data as JSON for frontend consumption
 
         Args:
             output_path: Path to save JSON file
             include_metrics: Whether to include additional metrics
+            min_threshold: Minimum number of users to show a connection
         """
         migrations = self.detect_migrations()
         flows = self.calculate_flow_metrics(migrations)
-        graph = self.build_network_graph(flows)
+        graph = self.build_network_graph(flows, min_threshold=min_threshold)
         bridges = self.identify_bridge_communities(graph)
 
         export_data = {
@@ -323,7 +324,7 @@ def main():
     processor = MigrationProcessor(data_path=args.input)
 
     # Process and export
-    processor.export_for_frontend(args.output)
+    processor.export_for_frontend(args.output, min_threshold=args.min_flow)
 
     print("\n✓ Processing complete!\n")
 

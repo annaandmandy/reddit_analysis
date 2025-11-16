@@ -19,7 +19,7 @@ function App() {
   const [selectedCommunity, setSelectedCommunity] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [minFlow, setMinFlow] = useState(5);
+  const [minFlow, setMinFlow] = useState(1);
   const [highlightNodes, setHighlightNodes] = useState([]);
   const [highlightLinks, setHighlightLinks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -182,7 +182,7 @@ function App() {
       {/* Main Content */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left Sidebar */}
-        <aside className="w-80 bg-white border-r border-gray-200 p-6 overflow-y-auto">
+        <aside className="w-80 flex-shrink-0 bg-white border-r border-gray-200 p-6 overflow-y-auto">
           <div className="space-y-6">
             {/* Search */}
             <div>
@@ -264,7 +264,7 @@ function App() {
         </main>
 
         {/* Right Sidebar - Stats Panel */}
-        <aside className="w-96 bg-white border-l border-gray-200">
+        <aside className="w-[28rem] flex-shrink-0 bg-white border-l border-gray-200 overflow-y-auto">
           <MigrationStats
             selectedCommunity={selectedCommunity}
             graph={filteredData.graph}

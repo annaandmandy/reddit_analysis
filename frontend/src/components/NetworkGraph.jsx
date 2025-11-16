@@ -148,6 +148,10 @@ const NetworkGraph = ({ data, onNodeClick, highlightNodes = [], highlightLinks =
         linkCanvasObject={paintLink}
         onNodeClick={handleNodeClick}
         onNodeHover={handleNodeHover}
+        onNodeDragEnd={node => {
+          node.fx = node.x;
+          node.fy = node.y;
+        }}
         linkDirectionalArrowLength={0} // We draw custom arrows
         linkDirectionalArrowRelPos={1}
         enableNodeDrag={true}

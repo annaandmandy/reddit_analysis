@@ -30,6 +30,20 @@ const MigrationStats = ({ selectedCommunity, graph }) => {
     );
   }
 
+  const hasData = stats.incoming.count > 0 || stats.outgoing.count > 0;
+
+  if (!hasData) {
+    return (
+      <div className="p-6 text-center text-gray-500">
+        <h3 className="text-xl font-bold text-gray-900 mb-2">
+          r/{selectedCommunity}
+        </h3>
+        <p className="mt-4">This community has no migration connections in the current filter.</p>
+        <p className="text-sm mt-2">Try adjusting the minimum flow filter.</p>
+      </div>
+    );
+  }
+
   const incomingData = stats.incoming.top.map(link => ({
     name: link.source,
     value: link.value,
